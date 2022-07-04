@@ -2,11 +2,9 @@ package config;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.log4testng.Logger;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class Browser {
-
-    private Logger logger = Logger.getLogger(getClass());
 
     protected WebDriver driver;
 
@@ -26,12 +24,19 @@ public abstract class Browser {
     }
 
     public void open(String url) {
-        logger.info(url + " opened");
         driver.get(url);
     }
 
     public Actions getActions() {
         return new Actions(driver);
+    }
+
+    public WebDriverWait getWaiter(int timeout) {
+        return new WebDriverWait(driver, timeout);
+    }
+
+    public WebDriverWait getWaiter(int timeout, int interval) {
+        return new WebDriverWait(driver, timeout, interval);
     }
 
 }

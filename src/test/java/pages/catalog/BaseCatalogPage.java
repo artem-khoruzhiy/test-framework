@@ -2,12 +2,10 @@ package pages.catalog;
 
 import component.catalog.Navigation;
 import config.Browser;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
-import org.testng.log4testng.Logger;
 
 public abstract class BaseCatalogPage {
-
-    protected Logger logger = Logger.getLogger(this.getClass());
 
     private By navigationLocator = By.className("catalog-navigation");
 
@@ -20,6 +18,7 @@ public abstract class BaseCatalogPage {
         this.navigation = new Navigation(browser, browser.getWebDriver().findElement(navigationLocator));
     }
 
+    @Step("Open catalog. Category: {0}, subcategory {1}, product: {2}")
     public GoodPage openCatalog(String category, String subcategory, String product) {
         navigation.openCatalog(category, subcategory, product);
 

@@ -1,5 +1,6 @@
 package tests.navigation;
 
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -9,7 +10,8 @@ import tests.BaseTest;
 
 public class NavigationTests extends BaseTest {
 
-    @Test(testName = "Catalog navigation test", dataProvider = "goods")
+    @Description(value = "Catalog navigation test")
+    @Test(dataProvider = "goods", description = "Catalog navigation scenario with valid categories")
     public void catalogNavigationTest(String category, String subCategory, String good) {
         browser.open(catalogUrl);
         GoodPage goodPage = new CatalogPage(browser)
@@ -21,7 +23,7 @@ public class NavigationTests extends BaseTest {
     @DataProvider(name = "goods")
     public Object[][] goodList(){
         return new Object[][] {
-                {"Электроника", "Аудиотехника", "Умные колонки"},
+                {"Электроника", "Аудиотехника", "Наушники"},
                 {"Компьютеры и сети", "Комплектующие", "SSD"},
                 {"Дом и сад", "Кухня", "Смесители"},
                 {"Работа и офис", "Офисная мебель", "Сейфы"}

@@ -3,7 +3,6 @@ package config.drivers;
 import config.Browser;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.TestNG;
 
 public class ChromeBrowser extends Browser {
 

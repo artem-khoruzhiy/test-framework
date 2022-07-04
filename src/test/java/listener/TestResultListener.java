@@ -26,8 +26,7 @@ public class TestResultListener implements ITestListener {
                 + ".jpg";
         try {
             FileUtils.copyFile(srcFile, new File(fileName));
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

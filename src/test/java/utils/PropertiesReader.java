@@ -6,7 +6,7 @@ import java.util.Properties;
 
 public class PropertiesReader {
 
-    public static Properties properties;
+    private static Properties properties;
 
     static {
         try {
@@ -16,6 +16,10 @@ public class PropertiesReader {
         } catch (IOException e) {
             System.out.println("Can not load properties");
         }
+    }
+
+    public static String getProperty(String name) {
+        return properties.getProperty(name);
     }
 
 }
